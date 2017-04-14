@@ -40,8 +40,10 @@ int main(void)
     delay_ms(3000) ;       // ３秒後に開始
 
      while(1) {
+         printf("hello\r\n");
+         delay_ms(1000);
           // 湿度センサーから湿度・温度値を読出す
-          ans = HDC_Read() ;
+          //ans = HDC_Read() ;
      }
     return 0;
 }
