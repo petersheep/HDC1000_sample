@@ -22,7 +22,7 @@ static unsigned int Temp_raw;
 
 static uint16_t convert_endian_16(uint16_t i) {
     return ((i >> 8) & 0xFF) | (i << 8);
-} 
+}
 
 /*******************************************************************************
  *  ans = HDC_Init(id, address)                                                 *
@@ -73,7 +73,7 @@ int HDC_Init(int id, int address) {
 int HDC_Receive(char reg_adrs, int len, unsigned char *data) {
     int ans = 0;
     I2C_start();
-    I2C_send((Sensor_adrs << 1) + RW_0);
+    I2C_send((Sensor_adrs << 1) + I2C_WRITE);
     I2C_send(reg_adrs);
     I2C_stop();
 
@@ -81,7 +81,7 @@ int HDC_Receive(char reg_adrs, int len, unsigned char *data) {
         delay_ms(20);
     }
     I2C_start();
-    I2C_send((Sensor_adrs << 1) + RW_1);
+    I2C_send((Sensor_adrs << 1) + I2C_READ);
 
     I2C_gets(len, data);
 
@@ -101,7 +101,7 @@ int HDC_Send(char reg_adrs, unsigned char *data) {
 
     I2C_start();
 
-    I2C_send((Sensor_adrs << 1) + RW_0);
+    I2C_send((Sensor_adrs << 1) + I2C_WRITE);
     I2C_send(reg_adrs); // レジスタアドレスを指定
     I2C_puts(2, data);
     I2C_stop(); // ストップコンディションを発行する

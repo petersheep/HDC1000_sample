@@ -1,6 +1,6 @@
-/* 
+/*
  * File:   I2C.h
- * Author: NAOYA
+ * Author: Naoy_Miyamoto
  *
  * Created on 2017/04/05, 14:59
  */
@@ -13,10 +13,8 @@ extern "C" {
 #endif
 
     // 定数の定義
-#define ACK   0
-#define NOACK 1
-#define RW_0  0
-#define RW_1  1
+#define I2C_WRITE  0
+#define I2C_READ  1
 
 #include <i2c.h>
 
@@ -42,4 +40,3 @@ int I2C_gets(unsigned int len, unsigned char *data);
 #endif
 
 #endif	/* I2C_H */
-
