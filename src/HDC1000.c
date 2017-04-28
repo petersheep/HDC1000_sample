@@ -1,11 +1,11 @@
-/*
- * File:   HDC1000.c
- * Author: NAOYA
- *
- * Created on 2017/04/05, 14:51
- */
+//
+//  Copyright(c) 2017, SenSprout Inc.All rights reserved.
+//
 
+#ifdef __XC16
 #include <xc.h>
+#endif
+
 #include <math.h>
 #include <stdint.h>
 #include "HDC1000.h"
